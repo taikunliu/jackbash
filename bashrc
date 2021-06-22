@@ -169,6 +169,11 @@ complete -W "$(echo `cat ~/.ssh/known_hosts 2> /dev/null | cut -f 1 -d ' ' | sed
 # For _get_cword from https://code.google.com/p/bash-completion-lib/source/browse/trunk/include/_get_cword?spec=svn85&r=85
 . ~/.bash/config/get_cword.bash
 
+# set title to iterm2 tab
+function title {
+    echo -ne "\033]0;"$*"\007"
+}
+
 # autocomplete man commands
 function listmans_raw() {
   local manpath_func
